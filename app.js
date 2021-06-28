@@ -13,11 +13,9 @@ async function api(){
   const response = await fetch(api_Url);
   const json = await response.json();
   
-  console.log(json.stats);
-  
-  app.get('', (req,res)=> {
+   app.get('', (req,res)=> {
 
-    res.render('index', {text: json.sprites.front_shiny, stats:json.stats[1].stat.name + " " + json.stats[1].base_stat });
+    res.render('index', {name:json.name,text: json.sprites.front_default, stats:json.stats[1].stat.name + " " + json.stats[1].base_stat });
   });
 }
 api();
