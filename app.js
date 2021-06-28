@@ -9,22 +9,17 @@ const port = 1880;
 const fetch = require("node-fetch");
 
 async function api(){
-  const api_Url = `https://pokeapi.co/api/v2/pokemon/pikachu/`;
-  const response = await fetch(api_Url);
-  const json = await response.json();
-  
-   app.get('', (req,res)=> {
+    const api_Url = `https://pokeapi.co/api/v2/pokemon/pikachu/`;
+    const response = await fetch(api_Url);
+    const json = await response.json();
 
-    res.render('index', {name:json.name,text: json.sprites.front_default, stats:json.stats[1].stat.name + " " + json.stats[1].base_stat });
-  });
+    app.get('', (req,res)=> {
+
+            res.render('index', {name:json.name,text: json.sprites.front_default, stats:json.stats[1].stat.name + " " + json.stats[1].base_stat });
+    });
 }
 api();
 
-
-
-
-app.listen(port, () => {
- 
-   
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(port, () => { 
+    console.log(`Example app listening at http://localhost:${port}`)
 });
